@@ -35,3 +35,12 @@ function multiple(a: number, b: number) {
   }
   return
 }
+
+interface GreetingSettings {
+  greeting: string;
+  duration?: number;
+  color?: string;
+}
+
+declare function greet(setting: GreetingSettings): void;
+Reusable Types (Type Aliases) #
