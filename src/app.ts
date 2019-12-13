@@ -36,22 +36,32 @@ function multiple(a: number, b: number) {
   return;
 }
 
-interface GreetingSettings {
-  greeting: string;
-  duration?: number;
-  color?: string;
-}
+// interface GreetingSettings {
+//   greeting: string;
+//   duration?: number;
+//   color?: string;
+// }
 
-declare function greet(setting: GreetingSettings): void;
+// declare function greet(setting: GreetingSettings): void;
 
-declare namespace GreetingLib.Options {
-  // Refer to via GreetingLib.Options.Log
-  interface Log {
-    verbose?: boolean;
-  }
-  interface Alert {
-    modal: boolean;
-    title?: string;
-    color?: string;
+// declare namespace GreetingLib.Options {
+//   // Refer to via GreetingLib.Options.Log
+//   interface Log {
+//     verbose?: boolean;
+//   }
+//   interface Alert {
+//     modal: boolean;
+//     title?: string;
+//     color?: string;
+//   }
+// }
+
+const myGreeter = new Greeter("hello, world");
+myGreeter.greeting = "howdy";
+myGreeter.showGreeting();
+
+class SpecialGreeter extends Greeter {
+  constructor() {
+    super("Very special greetings");
   }
 }
