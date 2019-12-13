@@ -4,7 +4,7 @@ class Person {
   constructor(private name: string) {}
 }
 
-const max = new Person('Maxim')
+const max = new Person("Maxim");
 
 // Demo comment
 
@@ -16,24 +16,24 @@ const max = new Person('Maxim')
 
 // =======
 
-let anyFlag
+let anyFlag;
 
-const globalVar = 'Message'
+const globalVar = "Message";
 
 function logInfo(data: string, _?: number) {
   // const message = 'String'
-  console.log(data)
-  anyFlag = true
-  console.log(anyFlag)
+  console.log(data);
+  anyFlag = true;
+  console.log(anyFlag);
 }
 
-logInfo('I am log string')
+logInfo("I am log string");
 
 function multiple(a: number, b: number) {
   if (a && b) {
-    return a * b
+    return a * b;
   }
-  return
+  return;
 }
 
 interface GreetingSettings {
@@ -43,4 +43,15 @@ interface GreetingSettings {
 }
 
 declare function greet(setting: GreetingSettings): void;
-Reusable Types (Type Aliases) #
+
+declare namespace GreetingLib.Options {
+  // Refer to via GreetingLib.Options.Log
+  interface Log {
+    verbose?: boolean;
+  }
+  interface Alert {
+    modal: boolean;
+    title?: string;
+    color?: string;
+  }
+}
