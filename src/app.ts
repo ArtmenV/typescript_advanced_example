@@ -56,52 +56,71 @@ function multiple(a: number, b: number) {
 //   }
 // }
 
-const myGreeter = new Greeter("hello, world");
-myGreeter.greeting = "howdy";
-myGreeter.showGreeting();
+// const myGreeter = new Greeter("hello, world");
+// myGreeter.greeting = "howdy";
+// myGreeter.showGreeting();
 
-class SpecialGreeter extends Greeter {
-  constructor() {
-    super("Very special greetings");
+// class SpecialGreeter extends Greeter {
+//   constructor() {
+//     super("Very special greetings");
+//   }
+// }
+
+// function f() {
+//   console.log("f(): evaluated");
+//   return function(target, propertyKey: string, descriptor: PropertyDescriptor) {
+//     console.log("f(): called");
+//   };
+// }
+
+// function g() {
+//   console.log("g(): evaluated");
+//   return function(target, propertyKey: string, descriptor: PropertyDescriptor) {
+//     console.log("g(): called");
+//   };
+// }
+
+// class C {
+//   @f()
+//   @g()
+//   method() {}
+// }
+
+// function classDecorator<T extends { new (...args: any[]): {} }>(
+//   constructor: T
+// ) {
+//   return class extends constructor {
+//     newProperty = "new property";
+//     hello = "override";
+//   };
+// }
+
+// @classDecorator
+// class Greeter {
+//   property = "property";
+//   hello: string;
+//   constructor(m: string) {
+//     this.hello = m;
+//   }
+// }
+
+// console.log(new Greeter("world"));
+
+class Point {
+  private _x: number;
+  private _y: number;
+  constructor(x: number, y: number) {
+    this._x = x;
+    this._y = y;
+  }
+
+  @configurable(false)
+  get x() {
+    return this._x;
+  }
+
+  @configurable(false)
+  get y() {
+    return this._y;
   }
 }
-
-function f() {
-  console.log("f(): evaluated");
-  return function(target, propertyKey: string, descriptor: PropertyDescriptor) {
-    console.log("f(): called");
-  };
-}
-
-function g() {
-  console.log("g(): evaluated");
-  return function(target, propertyKey: string, descriptor: PropertyDescriptor) {
-    console.log("g(): called");
-  };
-}
-
-class C {
-  @f()
-  @g()
-  method() {}
-}
-
-function classDecorator<T extends { new (...args: any[]): {} }>(
-  constructor: T
-) {
-  return class extends constructor {
-    newProperty = "new property";
-    hello = "override";
-  };
-}
-
-@classDecorator
-class Greeter {
-  property = "property";
-  hello: string;
-  constructor(m: string) {
-    this.hello = m;
-  }
-}
-
-console.log(new Greeter("world"));
